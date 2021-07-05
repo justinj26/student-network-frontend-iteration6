@@ -137,6 +137,9 @@ class Home extends React.Component {
   // handleInterface() {
   //   this.setState({ mentor_interface: !this.state.mentor_interface})
   // }
+  parentFunction=(data_from_child)=>{
+    console.log(data_from_child);
+  }
 
   render() {
     // as a note for this page
@@ -185,7 +188,7 @@ class Home extends React.Component {
           {/* </ButtonGroup>
           </ButtonToolbar> */}
         </div>
-        <Filter />
+        <Filter functionCallFromParent={this.parentFunction.bind(this)}/>
         <MatchesAndRequests />
         <div className={styles.main_grid}>
           <Switch>

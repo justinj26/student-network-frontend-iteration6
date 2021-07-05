@@ -93,6 +93,11 @@ class Filter extends React.Component {
     this.setState({ filter_education: event.target.value });
   }
 
+  childFunction=(e)=>{
+    e.preventDefault();
+    this.props.functionCallFromParent("Hello From Child1");
+  }
+
   handleSubmit(event) {
     event.preventDefault();
 
@@ -468,7 +473,7 @@ class Filter extends React.Component {
             </Col>
           </Form.Group>
           <br />
-          <Button variant="outlined" onChange={this.handleSubmit} type="submit">
+          <Button variant="outlined" onChange={this.handleSubmit} onClick={this.childFunction.bind(this)} type="submit">
             Filter
           </Button>
           {/* </Col> */}

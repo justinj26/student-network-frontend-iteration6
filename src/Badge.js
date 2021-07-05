@@ -9,13 +9,13 @@ import styles from "./Badge.module.css";
 import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
 import FavoriteBorderTwoToneIcon from "@material-ui/icons/FavoriteBorderTwoTone";
 import Button from "@material-ui/core/Button";
-import BookmarkTwoToneIcon from '@material-ui/icons/BookmarkTwoTone';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkTwoToneIcon from "@material-ui/icons/BookmarkTwoTone";
+import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 // import Avatar from "./Avatar";
 const axios = require("axios");
 const React = require("react");
 
-const request_mentor_url = "/requestmentor"
+const request_mentor_url = "/requestmentor";
 
 // const data = {
 //   college: "University of Michigan",
@@ -37,6 +37,8 @@ class Badge extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleFavorite = this.handleFavorite.bind(this);
+    this.handleSaved = this.handleSaved.bind(this);
   }
 
   async componentDidMount() {
@@ -49,22 +51,49 @@ class Badge extends React.Component {
     }
   }
 
+  async handleFavorite() {
+    if (this.state.favorite) {
+      try {
+        await axios.post();
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        await axios.post();
+      } catch (error) {}
+    }
+  }
 
+  async handleSaved() {
+    if (this.state.favorite) {
+      try {
+        await axios.post();
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        await axios.post();
+      } catch (error) {}
+    }
+  }
 
   async handleClick() {
-
-    // note: user id and token will likely need to be 
+    // note: user id and token will likely need to be
     // toted around with user
 
-    const requestObj = 
-      {"user_id": "user_id", "token": "authentication token", "add_connection":
-      {"user_id": "Connection User id"}, "connection_type": "mentor type id"} 
-    
+    const requestObj = {
+      user_id: "user_id",
+      token: "authentication token",
+      add_connection: { user_id: "Connection User id" },
+      connection_type: "mentor type id"
+    };
 
     try {
-      await axios.post(request_mentor_url, requestObj)
+      await axios.post(request_mentor_url, requestObj);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
@@ -106,11 +135,10 @@ class Badge extends React.Component {
           </div>
         </div>
         <Button variant="contained" onClick={this.handleClick}>
-            Request Mentor
+          Request Mentor
         </Button>
-        <div className={styles.saved_icon} >
-        <Button onClick={(e) => this.setState({ saved: !this.state.saved })}
-          >
+        <div className={styles.saved_icon}>
+          <Button onClick={(e) => this.setState({ saved: !this.state.saved })}>
             {this.state.saved ? (
               <BookmarkTwoToneIcon style={{ color: "blue" }} />
             ) : (

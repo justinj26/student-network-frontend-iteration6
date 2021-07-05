@@ -196,11 +196,21 @@ class Home extends React.Component {
             <Route path="/mentors">
               <Mentors user_id={user_id} token={token} />
             </Route>
-            <Route path="/all_matches"></Route>
-            <Route path="/incoming_match_requests"></Route>
-            <Route path="/favorite_matches"></Route>
-            <Route path="/outgoing_match_requests"></Route>
-            <Route path="/saved_profiles"></Route>
+            <Route path="/all_matches">
+              <HomePageBadgeGrid2 users={this.state.all_matches} />
+            </Route>
+            <Route path="/incoming_match_requests">
+              <HomePageBadgeGrid2 users={this.state.incoming_match_requests} />
+            </Route>
+            <Route path="/favorite_matches">
+              <HomePageBadgeGrid2 users={this.state.favorite_matches} />
+            </Route>
+            <Route path="/outgoing_match_requests">
+              <HomePageBadgeGrid2 users={this.state.outgoing_match_requests} />
+            </Route>
+            <Route path="/saved_profiles">
+              <HomePageBadgeGrid2 users={this.state.saved_profiles} />
+            </Route>
             <Route path="/filter"></Route>
             <Route></Route>
             <Route></Route>
